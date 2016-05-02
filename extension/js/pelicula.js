@@ -1,14 +1,12 @@
 
 $(document).ready(function () {
 	console.log('En película CineHoyts!!');
-	var muestra_rating = true;
-	var imdb_img = chrome.extension.getURL('img/imdb.png');
-	var imdb_star_img = chrome.extension.getURL('img/imdb_star.png');
 
-	agrega_imdb();
+	pelicula = $('#ContentPlaceHolder1_ctl_sinopsis_seccion_pelicula');
+	agrega_imdb(pelicula);
 	
-	function agrega_imdb() {
-		var titulo = $('#ContentPlaceHolder1_ctl_sinopsis_ctl_titulo').text();
+	function agrega_imdb(pelicula) {
+		var titulo = pelicula.find('#ContentPlaceHolder1_ctl_sinopsis_ctl_titulo').text();
 		var url = 'http://www.imdb.com/find?q=' + titulo + '&s=tt&ttype=ft';
 		$.ajax({
 	        url: url,
@@ -27,16 +25,16 @@ $(document).ready(function () {
 				  id = split[2];
 				  
 				  if(muestra_rating) {
-					  link_rating(id);
+					  link_rating(id, pelicula);
 			  	  } else {
 	  			  	imdb_link = '<a href="http://www.imdb.com/title/' + id + '" target="_blank"><img src="' + imdb_img + '"></a>';
-	  			  	$('.infoAdicional').append(imdb_link);
+	  			  	pelicula.find('.infoAdicional').append(imdb_link);
 			  	  }
 	          }
 	    });
 	}
 	
-	function link_rating(imdb_id) {
+	function link_rating(imdb_id, pelicula) {
 		var url = 'http://www.imdb.com/title/' + imdb_id + '/';
 		$.ajax({ 
 		    type: "GET",
@@ -47,7 +45,7 @@ $(document).ready(function () {
 				html = $(html);
 				rating = html.find('.imdbRating .ratingValue span[itemprop="ratingValue"]').text();
 				imdb_link = '<span class="imdbRatingPlugin imdbRatingStyle1" data-title="' + imdb_id + '" data-style="t1"><a href="http://www.imdb.com/title/' + imdb_id + '" target="_blank"><img src="' + imdb_img + '"></a><span class="rating">' + rating + '<span class="ofTen">/10</span></span><img src="' + imdb_star_img + '" class="star"></span>';
-  			  	$('.infoAdicional').append(imdb_link);
+  			  	pelicula.find('.infoAdicional').append(imdb_link);
 		    },
 		    async: true,
 		    error: function() {

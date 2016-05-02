@@ -1,9 +1,6 @@
 
 $(document).ready(function () {
 	console.log('En home CineHoyts!!');
-	var muestra_rating = true;
-	var orden_rating = 1; // 1 desc (rating de mayor a menor), -1 asc (rating de menor a mayor)
-	var imdb_img = chrome.extension.getURL('img/imdb.png');
 
 	// obtiene ratings al cambiar ubicación
 	$(document).on('DOMNodeInserted', '.listCartelera', function(e) {
