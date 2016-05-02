@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+
+	"name": "IMDb en CineHoyts",
+	"description": "Agrega Links a IMDb para las películas de CineHoyts en cartelera",
+	"version": "1.0",
+	"homepage_url": "http://www.webmachine.cl",
+	"icons": {
+		"128": "icons/128.png",
+		"32": "icons/32.png"
+	},
+	"content_scripts": [
+		{
+			"run_at": "document_end",
+			"matches": ["http://www.cinehoyts.cl/"],
+			"css": ["css/imdbRating.css"],
+			"js": ["js/jquery-2.2.3.min.js", "js/home.js"]
+		},		
+		{
+			"run_at": "document_end",
+			"matches": ["http://www.cinehoyts.cl/cartelera/*"],
+			"css": ["css/imdbRating.css"],
+			"js": ["js/jquery-2.2.3.min.js", "js/cartelera.js"]
+		},
+		{
+			"run_at": "document_end",
+			"matches": ["http://www.cinehoyts.cl/pelicula/*"],
+			"css": ["css/imdbRating.css"],
+			"js": ["js/jquery-2.2.3.min.js", "js/pelicula.js"]
+		}		
+	],
+	"permissions": ["<all_urls>"],
+	"web_accessible_resources": [
+		"img/*.png"
+	]
+}

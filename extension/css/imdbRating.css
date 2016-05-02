@@ -1,0 +1,56 @@
+.btn-call .imdbRatingPlugin {
+	margin-left: 43px;
+	margin-bottom: 0px;
+}
+.btn-call a.imdb:hover{
+	background-color: #fff !important;
+	color: #feca30;
+}
+
+.imdbRatingPlugin {
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	color: #000 !important;
+	display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 5px 0;
+}
+.imdbRatingPlugin a {
+	text-decoration: none;
+}
+.imdbRatingPlugin img {
+	border: none;
+	vertical-align: text-bottom;
+}
+.imdbRatingPlugin span.rating {
+	color: #000 !important;
+	font-size: 18px !important;
+	margin-left: 5px;
+	display: inline-block;
+}
+.imdbRatingPlugin span.ofTen {
+	color: #666 !important;
+	font-size: 9px !important;
+}
+.imdbRatingPlugin img.star{
+    margin-left: 3px;
+}
+.imdbRatingPlugin span.votes {
+    padding-left: 2px;
+    font-size: 13px;
+    color: #666;
+    font-weight: normal;
+    margin-left: 3px;
+}
+
+.imdbRatingStyle1 {
+	background-color: #fff;
+	border: 1px solid #666;
+	font-size: 18px !important;
+	padding: 2px 2px 1px !important;
+}
